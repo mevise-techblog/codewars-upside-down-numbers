@@ -38,14 +38,15 @@ func isUpsideDownUint(n uint64) bool {
 		//fmt.Println(rev)
 	}
 
-	///fmt.Printf("input:%v   str:%v", input, str)
-	if input == str {
-		fmt.Printf("input:%v   str:%v\n", input, str)
-		//fmt.Println("yep")
-	} else {
-		//fmt.Println("nope")
+	/*
+		///fmt.Printf("input:%v   str:%v", input, str)
+		if input == str {
+			fmt.Printf("input:%v   str:%v\n", input, str)
+			//fmt.Println("yep")
+		} else {
+			//fmt.Println("nope")
 
-	}
+		}*/
 
 	return input == str
 }
@@ -67,7 +68,7 @@ func UpsideDown(n1, n2 string) uint64 {
 }
 
 func main() {
-	fmt.Println(UpsideDown("6", "25"))
+	fmt.Println(UpsideDown("100000", "12345678900000000"))
 	//fmt.Println(isUpsideDownUint(16891))
 
 }
