@@ -8,6 +8,7 @@ import (
 
 func isUpsideDownUint(n uint64) bool {
 	input := strconv.FormatUint(n, 10)
+
 	if strings.ContainsAny(input, "23457") {
 		return false
 	}
