@@ -8,19 +8,19 @@ import (
 func isUpsideDownUint(n uint64) bool {
 	input := strconv.FormatUint(n, 10)
 
-	var m map[byte]string
-	m = make(map[byte]string)
+	var m map[byte]byte
+	m = make(map[byte]byte)
 
-	m['0'] = "0"
-	m['1'] = "1"
-	m['2'] = ""
-	m['3'] = ""
-	m['4'] = ""
-	m['5'] = ""
-	m['6'] = "9"
-	m['7'] = ""
-	m['8'] = "8"
-	m['9'] = "6"
+	m['0'] = '0'
+	m['1'] = '1'
+	//m['2'] = ""
+	//m['3'] = ""
+	//m['4'] = ""
+	//m['5'] = ""
+	m['6'] = '9'
+	//m['7'] = ""
+	m['8'] = '8'
+	m['9'] = '6'
 
 	// grab the two outside numbers
 	for i := 0; i < len(input)/2; i++ {
