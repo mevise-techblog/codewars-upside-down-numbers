@@ -3,15 +3,10 @@ package main
 import (
 	"fmt"
 	"strconv"
-	"strings"
 )
 
 func isUpsideDownUint(n uint64) bool {
 	input := strconv.FormatUint(n, 10)
-
-	if strings.ContainsAny(input, "23457") {
-		return false
-	}
 
 	var m map[byte]string
 	m = make(map[byte]string)
@@ -27,29 +22,22 @@ func isUpsideDownUint(n uint64) bool {
 	m['8'] = "8"
 	m['9'] = "6"
 
-	str := ""
-
-	for x := len(input) - 1; x >= 0; x-- {
-		//fmt.Printf("--x-->%d\n", x)
-		rev := m[input[x]]
-		if rev == "" {
+	// grab the two outside numbers
+	for i := 0; i < len(input)/2; i++ {
+		c1 := input[i]
+		c2 := input[len(input)-1-i]
+		if c1 != '1' && c1 != '6' && c1 != '8' && c1 != '9' {
 			return false
 		}
-		str = str + rev
-		//fmt.Println(rev)
+		if c2 != '1' && c2 != '6' && c2 != '8' && c2 != '9' {
+			return false
+		}
+
+		if m[c1] != c2 {
+			return false
+		}
 	}
-
-	/*
-		///fmt.Printf("input:%v   str:%v", input, str)
-		if input == str {
-			fmt.Printf("input:%v   str:%v\n", input, str)
-			//fmt.Println("yep")
-		} else {
-			//fmt.Println("nope")
-
-		}*/
-
-	return input == str
+	return true
 }
 
 func UpsideDown(n1, n2 string) uint64 {
